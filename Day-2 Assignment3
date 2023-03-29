@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <limits.h>
+
+int main() {
+    int arr[] = {5, 8, 3, 2, 9, 1};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    int largest = INT_MIN;
+    int second_largest = INT_MIN;
+    int smallest = INT_MAX;
+    int second_smallest = INT_MAX;
+
+    // Find the largest and second largest elements
+    for (int i = 0; i < n; i++) {
+        if (arr[i] > largest) {
+            second_largest = largest;
+            largest = arr[i];
+        } else if (arr[i] > second_largest && arr[i] != largest) {
+            second_largest = arr[i];
+        }
+    }
+
+    // Find the smallest and second smallest elements
+    for (int i = 0; i < n; i++) {
+        if (arr[i] < smallest) {
+            second_smallest = smallest;
+            smallest = arr[i];
+        } else if (arr[i] < second_smallest && arr[i] != smallest) {
+            second_smallest = arr[i];
+        }
+    }
+
+    printf("The second largest element is: %d\n", second_largest);
+    printf("The second smallest element is: %d\n", second_smallest);
+
+    return 0;
+}

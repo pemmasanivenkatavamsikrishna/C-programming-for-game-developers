@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+    int arr[] = {2, 1, 1, 2, 1, 2};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int first_largest = arr[0];
+    int second_largest = arr[0];
+
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > first_largest) {
+            second_largest = first_largest;
+            first_largest = arr[i];
+        } else if (arr[i] > second_largest && arr[i] != first_largest) {
+            second_largest = arr[i];
+        }
+    }
+
+    printf("The first largest element is: %d\n", first_largest);
+    printf("The second largest element is: %d\n", second_largest);
+
+    return 0;
+}
